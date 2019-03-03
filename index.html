@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz Game</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Trivium Trivia!</h1>
+    <br>
+    <section>
+        <h2>Time Left: <span id="time"></span></h2>
+        <p id="question"></p>
+        <div id="answers">
+            <button class="ans" id="a"></button>
+            <button class="ans" id="b"></button>
+            <button class="ans" id="c"></button>
+            <button class="ans" id="d"></button>
+        </div>
+    </section>
+    <section id="results">
+        <h2 id="fin">Click the button below to start</h2>
+        <p id="chosen"></p>
+        <p id="correct"></p>
+        <button id="new-game">New Game</button>
+    </section>
+
+    <script src="assets/javascript/app.js"></script>
+</body>
+
+</html>

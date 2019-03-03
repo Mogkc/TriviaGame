@@ -1,0 +1,39 @@
+* {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    background-color: darkmagenta;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+section {
+    position: absolute;
+    width: 80%;
+    height: 20em;
+    left: 10%;
+    background-color: red;
+}
+
+p {
+    width: 100%;
+}
+
+button {
+    float: left;
+    width: 25%;
+}
+
+#results {
+    z-index: 1;
+    background-color: green;
+}
+
+#new-game {
+    position: relative;
+    margin: 0 auto;
+}
