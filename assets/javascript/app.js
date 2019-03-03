@@ -6,16 +6,25 @@ var questions = [
 
 var correct;
 var currQues;
-var seconds;
-var timer;
+var seconds = -1;
 //Game doesn't start until they click start
 var gameOver = true;
+//Start the timer once, use continuously!!!
+var countDown = function () {
+    seconds--;
+    $("#time").text(seconds);
+    if (seconds === 0) {
+        outOfTime();
+    }
+}
+
+setInterval(countDown, 1000);
 
 
 var outOfTime = function () {
     $("#fin").text("Out of Time!");
     $("#chosen").text("You didn't chose any answer");
-    $("#correct").text("The correct answer was" + $("#" + questions[currQues].actual).text());
+    $("#correct").text("The correct answer was: " + $("#" + questions[currQues].actual).text());
     show();
 
     nextQuestion();
@@ -40,23 +49,12 @@ var nextQuestion = function () {
         $("#b").text(questions[currQues].b);
         $("#c").text(questions[currQues].c);
         $("#d").text(questions[currQues].d);
-        //Start question timer from max value
+        //Change question timer from max value
         seconds = 31;
-        countDown();
     } else {
         gameOver = true;
         prepFinal();
         show();
-    }
-}
-
-var countDown = function () {
-    seconds--;
-    if (seconds > 0) {
-        timer = setInterval(countDown, 1000);
-        $("#time").text(seconds);
-    } else {
-        outOfTIme();
     }
 }
 
@@ -71,7 +69,7 @@ var show = function () {
     if (gameOver) {
         $("#new-game").css("display", "block");
     }
-    timer = setInterval(hide, 5000);
+    setTimeout(hide, 5000);
 }
 
 var hide = function () {
@@ -81,10 +79,10 @@ var hide = function () {
 }
 
 $(".ans").on("click", function (event) {
-    clearInterval(timer);
     var ans = questions[currQues].actual;
     if (event.target.id === ans) {
         $("#fin").text("Correct!");
+        correct++;
     } else {
         $("#fin").text("Incorrect");
     }
